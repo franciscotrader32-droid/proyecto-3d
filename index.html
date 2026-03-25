@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor 3D - Proyecto SolidWorks</title>
+    <style>
+        body { margin: 0; background-color: #f4f4f4; font-family: sans-serif; }
+        model-viewer { width: 100%; height: 100vh; --poster-color: transparent; }
+        .control-panel { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 8px; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <div class="control-panel">
+        <strong>Diseño en 3D</strong><br>
+        <span>Usa el mouse para rotar</span>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <model-viewer 
+        src="Ensamblaje para cliente.glb" 
+        alt="Modelo 3D de SolidWorks" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        shadow-intensity="1"
+        exposure="1">
+    </model-viewer>
+
+</body>
+</html>
