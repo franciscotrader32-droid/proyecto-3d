@@ -3,31 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visor 3D - Proyecto SolidWorks</title>
+    <title>Visor 3D Industrial - Cotización</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
     <style>
-        body { margin: 0; background-color: #f4f4f4; font-family: sans-serif; }
-        model-viewer { width: 100%; height: 100vh; --poster-color: transparent; }
-        .control-panel { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 8px; pointer-events: none; }
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle, #ffffff 0%, #d7d7d7 100%);
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        model-viewer {
+            width: 100%;
+            height: 100vh;
+            --poster-color: transparent;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+            pointer-events: none;
+        }
+
+        .header h1 { margin: 0; font-size: 18px; color: #333; }
+        .header p { margin: 5px 0 0; font-size: 12px; color: #666; }
+
+        /* Estilo para el botón de Realidad Aumentada */
+        #ar-button {
+            background-color: #007bff;
+            border-radius: 30px;
+            border: none;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 25px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
 
-    <div class="control-panel">
-        <strong>Diseño en 3D</strong><br>
-        <span>Usa el mouse para rotar</span>
+    <div class="header">
+        <h1>Proyecto SolidWorks 3D</h1>
+        <p>Gira el modelo con el dedo o mouse</p>
     </div>
 
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
     <model-viewer 
-    src="STEP.glb" 
-    ar 
-    ar-modes="webxr scene-viewer quick-look" 
-    camera-controls 
-    ar-status="not-present"> <button slot="ar-button" id="ar-button" style="display: block; position: absolute; bottom: 20px; right: 20px; background-color: white; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-       👋 Ver en mi espacio
-    </button>
-</model-viewer>
+        src="STEP.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1.5" 
+        shadow-softness="1"
+        environment-image="neutral" 
+        exposure="1.2">
+
+        <button slot="ar-button" id="ar-button">
+            👋 VER EN MI TALLER (AR)
+        </button>
+
+    </model-viewer>
 
 </body>
 </html>
